@@ -1,4 +1,7 @@
 package com.capg.msc.myshoopingcart.web;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -74,7 +77,11 @@ public class ProductRestController {
 	
 	@GetMapping("/products/{proudctCategory}")
 	public List<Product> getProductByCategory(@PathVariable String proudctCategory) {
-		// TODO Auto-generated method stub
+		Matcher m = Pattern.compile("[0-9]|@|[\\+-x\\*]").matcher(proudctCategory);
+		
+		if(proudctCategory.length()<3 || m.find()) {
+			throw new InvalidCategoryException(proudctCategory);
+		}
 		return service.getProductByCategory(proudctCategory);
 	}
 	
