@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capg.msc.myshoopingcart.beans.Product;
 import com.capg.msc.myshoopingcart.exception.InvalidCostRangeException;
-//import com.capg.msc.myshoopingcart.dao.CustomProductRepositoryImp;
+import com.capg.msc.myshoopingcart.exception.InvalidCategoryException
+
 import com.capg.msc.myshoopingcart.service.ProductServiceImp;
 
 @Validated
