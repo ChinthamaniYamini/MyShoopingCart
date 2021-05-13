@@ -46,6 +46,22 @@ public class MyGlobalExceptionHandler {
 		return new ResponseEntity<MyExceptionResponse>(excResponse,HttpStatus.BAD_REQUEST);
 		
 	}
+	@ExceptionHandler
+	public ResponseEntity<MyExceptionResponse> invalidCategoryByUser(InvalidCategoryException ex)
+	{
+		
+		
+		// design custom exception response 
+		String category = ex.getCategory();
+		MyExceptionResponse excResponse = new MyExceptionResponse();
+		excResponse.setHttpStatus(HttpStatus.BAD_REQUEST.value());
+		excResponse.setExceptionMsg("Invalid Category, the Category length should have atleast 3 characters and it should not be numeric and should not contain any special characters");
+
+		
+		return new ResponseEntity<MyExceptionResponse>(excResponse,HttpStatus.BAD_REQUEST);
+		
+	}
+	
 	
 	
 	
