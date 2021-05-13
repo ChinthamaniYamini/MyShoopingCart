@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.capg.msc.myshoopingcart.beans.Product;
 import com.capg.msc.myshoopingcart.exception.InvalidCostRangeException;
+import com.capg.msc.myshoopingcart.exception.InvalidCategoryException
 
 public interface ProductService {
 	
@@ -18,7 +19,7 @@ public interface ProductService {
 	public Product getProductById(int id);
 	
 	
-	public List<Product>  getProductByCategory(String proudctCategory);
+	public List<Product>  getProductByCategory(String proudctCategory) throws InvalidCategoryException;
 	
 	public List<Product>  getProductByCategoryAndPrice(String proudctCategory,int range1,int range2) throws InvalidCostRangeException;
 	
