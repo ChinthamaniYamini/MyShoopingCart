@@ -2,16 +2,15 @@ package com.capg.msc.myshoopingcart.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import org.springframework.stereotype.Component;
-
-import com.sun.istack.NotNull;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
+@ApiModel(value = "Product Bean")
 public class Product {
 
 	@Id
@@ -20,8 +19,12 @@ public class Product {
 	
 	@NotEmpty(message ="Name should not be Null"  )
 	@Size(min=3,max=15,message="name not valid")
+	
+	@ApiModelProperty(name = "ProductName",value = "Hold the min 3 char product name",required = true)
 	private String productName;
 	@Min(value=1000,message="cost cannot be less than 1000")
+	
+	@ApiModelProperty(name = "Product cost",value = "Holds Product cost min cost 1000 allowed")
 	int productCost;
 	
 	//@Digits(fraction = 1, integer = 5,message ="rating should be in digits and more than 0")
